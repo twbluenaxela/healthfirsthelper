@@ -3,10 +3,15 @@ from openai import OpenAI
 
 # 引入 apikey 模組，這裡假設你已經將 API 金鑰存放在 apikey.py 檔案中
 from apikey import api_key  
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+API_KEY = os.getenv("api_key")
 
 # 建立 OpenAI 客戶端，使用 API 金鑰來進行身份驗證
 client = OpenAI(
-    api_key=api_key  # 傳入 API 金鑰，確保能夠存取 OpenAI 服務
+    api_key=API_KEY  # 傳入 API 金鑰，確保能夠存取 OpenAI 服務
 )
 
 # 定義 ChatGPT 的提示詞 (Prompt)，讓 AI 扮演專業的營養師兼健身教練
