@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書法藝廊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-brand">書法藝廊</a>
+      <ul class="nav-links">
+        <li><a href="#gallery">作品</a></li>
+        <li><a href="#about">關於</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="toggle menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="ink-splash"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="char">墨</span>
+        <span class="char">跡</span>
+        <span class="char">留</span>
+        <span class="char">香</span>
+      </h1>
+      <p class="hero-sub">The fragrance of ink lingers</p>
+      <a href="#gallery" class="hero-btn">觀賞作品</a>
+    </div>
+    <div class="scroll-hint">&#8595;</div>
+  </header>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="section-header">
+      <span class="section-label">作品集</span>
+      <h2>近作選輯</h2>
+      <div class="brush-line"></div>
+    </div>
+
+    <div class="gallery-grid">
+
+      <article class="gallery-item" data-index="0">
+        <div class="gallery-img-wrap">
+          <img src="images/work-01.svg" alt="行書《靜》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>靜</h3>
+          <p class="work-style">行書</p>
+          <p class="work-date">2024</p>
+          <p class="work-desc">取靜字筆意，橫勢輕提，收筆含韻。</p>
+        </div>
+      </article>
+
+      <article class="gallery-item" data-index="1">
+        <div class="gallery-img-wrap">
+          <img src="images/work-02.svg" alt="楷書《雲》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>雲</h3>
+          <p class="work-style">楷書</p>
+          <p class="work-date">2024</p>
+          <p class="work-desc">楷法嚴謹，結體端莊，雲字上輕下實。</p>
+        </div>
+      </article>
+
+      <article class="gallery-item" data-index="2">
+        <div class="gallery-img-wrap">
+          <img src="images/work-03.svg" alt="草書《山》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>山</h3>
+          <p class="work-style">草書</p>
+          <p class="work-date">2023</p>
+          <p class="work-desc">草書奔放，一氣呵成，山勢巍峨。</p>
+        </div>
+      </article>
+
+      <article class="gallery-item" data-index="3">
+        <div class="gallery-img-wrap">
+          <img src="images/work-04.svg" alt="篆書《水》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>水</h3>
+          <p class="work-style">篆書</p>
+          <p class="work-date">2023</p>
+          <p class="work-desc">篆書古樸，線條圓潤，水意流動。</p>
+        </div>
+      </article>
+
+      <article class="gallery-item" data-index="4">
+        <div class="gallery-img-wrap">
+          <img src="images/work-05.svg" alt="隸書《風》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>風</h3>
+          <p class="work-style">隸書</p>
+          <p class="work-date">2023</p>
+          <p class="work-desc">隸書蠶頭雁尾，橫波舒展，風行無礙。</p>
+        </div>
+      </article>
+
+      <article class="gallery-item" data-index="5">
+        <div class="gallery-img-wrap">
+          <img src="images/work-06.svg" alt="行草《心》" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="overlay-icon">&#10010;</span>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <h3>心</h3>
+          <p class="work-style">行草</p>
+          <p class="work-date">2022</p>
+          <p class="work-desc">行草兼融，三點似水，鉤筆有情。</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section section-dark">
+    <div class="about-inner">
+      <div class="section-header">
+        <span class="section-label">關於書者</span>
+        <h2>筆墨之道</h2>
+        <div class="brush-line"></div>
+      </div>
+      <div class="about-body">
+        <div class="about-seal">印</div>
+        <div class="about-text">
+          <p>
+            書法，是時間凝固在紙上的氣息。每一筆，每一劃，都是內心與宣紙之間的對話。
+          </p>
+          <p>
+            習書多年，從楷書入門，漸進行、草、篆、隸。每種書體都有其獨特的呼吸節奏——楷書如站立，行書如步行，草書如奔馳。
+          </p>
+          <p>
+            此藝廊收錄近年來練習與創作的作品，記錄這條永無止境的墨道之旅。
+          </p>
+          <blockquote>
+            「字如其人，墨如其心。」
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <span class="section-label">聯絡</span>
+      <h2>留言墨跡</h2>
+      <div class="brush-line"></div>
+    </div>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="name" placeholder="您的姓名" required />
+      </div>
+      <div class="form-row">
+        <label for="email">電郵</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-row">
+        <label for="message">留言</label>
+        <textarea id="message" name="message" rows="5" placeholder="寫下您的想法…" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">送出</button>
+      <p class="form-note" id="formNote"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-seal">書</div>
+    <p>書法藝廊 &copy; <span id="year"></span></p>
+    <p class="footer-sub">墨香長存</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="作品檢視">
+    <button class="lb-close" id="lbClose" aria-label="關閉">&#10005;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="上一件">&#8592;</button>
+    <button class="lb-next" id="lbNext" aria-label="下一件">&#8594;</button>
+    <div class="lb-content">
+      <img id="lbImg" src="" alt="" />
+      <div class="lb-info">
+        <h3 id="lbTitle"></h3>
+        <p id="lbStyle"></p>
+        <p id="lbDate"></p>
+        <p id="lbDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
