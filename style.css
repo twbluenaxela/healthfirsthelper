@@ -1,26 +1,26 @@
 /* =============================================
-   書法藝廊 — Traditional Ink-Brush Aesthetic
+   竹林軒 — 紅木 Dark Theme
    ============================================= */
 
 /* --- Variables --- */
 :root {
-  --ink:        #1c1a18;
-  --ink-light:  #3a3530;
-  --paper:      #f5f0e8;
-  --paper-dark: #ede5d3;
-  --seal-red:   #c0392b;
-  --gold:       #b8963e;
-  --text:       #2c2520;
-  --text-muted: #7a6e64;
-  --border:     rgba(28,26,24,0.15);
+  --ink:        #070503;
+  --ink-light:  #180C07;
+  --paper:      #1C1008;
+  --paper-dark: #281812;
+  --seal-red:   #C03826;
+  --gold:       #C89040;
+  --text:       #DEC8A2;
+  --text-muted: #9A7B62;
+  --border:     rgba(200,144,58,0.18);
 
   --font-zh: 'Noto Serif TC', 'Songti SC', serif;
   --font-en: 'Noto Serif', Georgia, serif;
 
   --radius: 2px;
   --transition: 0.3s ease;
-  --shadow: 0 4px 24px rgba(28,26,24,0.12);
-  --shadow-lg: 0 12px 48px rgba(28,26,24,0.22);
+  --shadow: 0 4px 24px rgba(0,0,0,0.55);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.75);
 }
 
 /* --- Reset --- */
@@ -43,12 +43,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(245,240,232,0.92);
+  background: rgba(7,5,3,0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(200,144,58,0.14);
   transition: box-shadow var(--transition);
 }
-#nav.scrolled { box-shadow: var(--shadow); }
+#nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.7); }
 .nav-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -62,7 +62,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: var(--ink);
+  color: var(--text);
 }
 .nav-links {
   display: flex;
@@ -82,15 +82,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   bottom: 0; left: 0;
   width: 0; height: 1px;
-  background: var(--seal-red);
+  background: var(--gold);
   transition: width var(--transition);
 }
-.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { width: 100%; }
 .nav-toggle {
   display: none;
   font-size: 1.4rem;
-  color: var(--ink);
+  color: var(--text);
   margin-left: auto;
 }
 
@@ -109,10 +109,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(180,160,120,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(192,57,43,0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(140,55,18,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(192,56,38,0.10) 0%, transparent 50%);
 }
-/* Paper texture overlay */
 .hero::after {
   content: '';
   position: absolute;
@@ -125,7 +124,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .ink-splash {
   position: absolute;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(44,40,36,0.9) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(38,20,12,0.92) 0%, transparent 70%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -142,7 +141,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 0.15em;
   font-size: clamp(4rem, 14vw, 10rem);
   font-weight: 300;
-  color: var(--paper);
+  color: var(--text);
   letter-spacing: 0.05em;
   line-height: 1;
   margin-bottom: 1.5rem;
@@ -150,7 +149,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .char {
   display: inline-block;
   animation: fadeSlideIn 0.8s both;
-  text-shadow: 2px 4px 16px rgba(0,0,0,0.5);
+  text-shadow: 2px 4px 16px rgba(0,0,0,0.6);
 }
 .char:nth-child(1) { animation-delay: 0.1s; }
 .char:nth-child(2) { animation-delay: 0.25s; }
@@ -165,7 +164,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-sub {
   font-family: var(--font-en);
   font-style: italic;
-  color: rgba(245,240,232,0.55);
+  color: rgba(222,200,162,0.50);
   font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: lowercase;
@@ -175,8 +174,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-btn {
   display: inline-block;
   padding: 0.75rem 2.5rem;
-  border: 1px solid rgba(245,240,232,0.35);
-  color: var(--paper);
+  border: 1px solid rgba(222,200,162,0.30);
+  color: var(--text);
   font-size: 0.95rem;
   letter-spacing: 0.25em;
   border-radius: var(--radius);
@@ -184,15 +183,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   animation: fadeSlideIn 0.8s 0.85s both;
 }
 .hero-btn:hover {
-  background: rgba(245,240,232,0.1);
-  border-color: rgba(245,240,232,0.6);
+  background: rgba(222,200,162,0.08);
+  border-color: rgba(222,200,162,0.55);
 }
 .scroll-hint {
   position: absolute;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(245,240,232,0.3);
+  color: rgba(222,200,162,0.28);
   font-size: 1.2rem;
   animation: bounce 2s infinite;
   z-index: 2;
@@ -208,8 +207,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background-color: var(--paper);
 }
 .section-dark {
-  background-color: var(--ink);
-  color: var(--paper);
+  background-color: var(--paper-dark);
+  color: var(--text);
 }
 .section-header {
   text-align: center;
@@ -219,10 +218,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.78rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--seal-red);
+  color: var(--gold);
   font-family: var(--font-en);
 }
-.section-dark .section-label { color: rgba(192,57,43,0.8); }
 .section-header h2 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 300;
@@ -233,7 +231,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-block;
   width: 60px;
   height: 2px;
-  background: var(--seal-red);
+  background: var(--gold);
   position: relative;
 }
 .brush-line::before, .brush-line::after {
@@ -241,7 +239,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   top: 0;
   height: 2px;
-  background: var(--seal-red);
+  background: var(--gold);
   opacity: 0.3;
 }
 .brush-line::before { left: -20px; width: 15px; }
@@ -287,7 +285,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(28,26,24,0.5);
+  background: rgba(7,5,3,0.60);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,9 +294,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 .overlay-icon {
-  color: var(--paper);
+  color: var(--text);
   font-size: 2rem;
-  border: 1px solid rgba(245,240,232,0.5);
+  border: 1px solid rgba(222,200,162,0.45);
   width: 56px; height: 56px;
   display: flex;
   align-items: center;
@@ -314,7 +312,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.1em;
   line-height: 1;
   margin-bottom: 0.5rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .work-style {
   font-size: 0.78rem;
@@ -339,9 +337,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   max-width: 900px;
   margin: 0 auto;
 }
-.section-dark .brush-line { background: var(--seal-red); }
-.section-dark .brush-line::before,
-.section-dark .brush-line::after { background: var(--seal-red); }
 .about-body {
   display: flex;
   gap: 3rem;
@@ -366,20 +361,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content: '';
   position: absolute;
   inset: 4px;
-  border: 1px solid rgba(192,57,43,0.3);
+  border: 1px solid rgba(192,56,38,0.3);
 }
 .about-text p {
   font-size: 1rem;
   line-height: 2;
   margin-bottom: 1.2rem;
-  color: rgba(245,240,232,0.85);
+  color: rgba(222,200,162,0.85);
 }
 .about-text blockquote {
   border-left: 2px solid var(--seal-red);
   padding-left: 1.2rem;
   font-style: italic;
   font-size: 0.95rem;
-  color: rgba(245,240,232,0.6);
+  color: rgba(222,200,162,0.58);
   margin-top: 2rem;
 }
 
@@ -412,24 +407,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   outline: none;
   resize: vertical;
 }
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
 .form-row input:focus,
 .form-row textarea:focus {
-  border-color: var(--ink-light);
-  box-shadow: 0 0 0 3px rgba(28,26,24,0.08);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200,144,58,0.10);
 }
 .submit-btn {
   display: block;
   width: 100%;
   padding: 0.9rem;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper-dark);
+  color: var(--text);
+  border: 1px solid var(--border);
   font-family: var(--font-zh);
   font-size: 1rem;
   letter-spacing: 0.3em;
   border-radius: var(--radius);
-  transition: background var(--transition);
+  transition: background var(--transition), border-color var(--transition);
 }
-.submit-btn:hover { background: var(--ink-light); }
+.submit-btn:hover {
+  background: var(--ink-light);
+  border-color: rgba(200,144,58,0.40);
+}
 .form-note {
   margin-top: 1rem;
   text-align: center;
@@ -441,7 +445,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* --- Footer --- */
 .footer {
   background: var(--ink);
-  color: rgba(245,240,232,0.5);
+  color: rgba(222,200,162,0.45);
   text-align: center;
   padding: 3rem 2rem;
   font-size: 0.85rem;
@@ -456,9 +460,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .footer p { margin-bottom: 0.3rem; }
 .footer-sub {
-  font-family: var(--font-en);
-  font-style: italic;
-  opacity: 0.4;
+  font-family: var(--font-zh);
+  letter-spacing: 0.25em;
+  opacity: 0.5;
 }
 
 /* --- Lightbox --- */
@@ -466,7 +470,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(20,18,16,0.96);
+  background: rgba(4,3,2,0.97);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -495,7 +499,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--shadow-lg);
 }
 .lb-info {
-  color: var(--paper);
+  color: var(--text);
   flex: 1;
 }
 .lb-info h3 {
@@ -513,33 +517,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lb-info #lbDate {
   font-family: var(--font-en);
   font-size: 0.8rem;
-  color: rgba(245,240,232,0.4);
+  color: rgba(222,200,162,0.40);
   margin-bottom: 1.2rem;
 }
 .lb-info #lbDesc {
   font-size: 0.95rem;
   line-height: 1.9;
-  color: rgba(245,240,232,0.7);
+  color: rgba(222,200,162,0.70);
 }
 .lb-close {
   position: absolute;
   top: 1.5rem; right: 1.5rem;
   font-size: 1.4rem;
-  color: rgba(245,240,232,0.5);
+  color: rgba(222,200,162,0.45);
   transition: color var(--transition);
   padding: 0.5rem;
 }
-.lb-close:hover { color: var(--paper); }
+.lb-close:hover { color: var(--text); }
 .lb-prev, .lb-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.8rem;
-  color: rgba(245,240,232,0.35);
+  color: rgba(222,200,162,0.30);
   padding: 1rem;
   transition: color var(--transition);
 }
-.lb-prev:hover, .lb-next:hover { color: var(--paper); }
+.lb-prev:hover, .lb-next:hover { color: var(--text); }
 .lb-prev { left: 1rem; }
 .lb-next { right: 1rem; }
 
@@ -551,7 +555,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     flex-direction: column;
     position: absolute;
     top: 60px; left: 0; right: 0;
-    background: var(--paper);
+    background: var(--ink-light);
     border-bottom: 1px solid var(--border);
     padding: 1rem 2rem;
     gap: 1rem;
