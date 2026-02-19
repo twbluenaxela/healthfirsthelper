@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 530" width="400" height="530">
+  <defs>
+    <filter id="paper" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blend"/>
+    </filter>
+  </defs>
+  <rect width="400" height="530" fill="#f2ece0" filter="url(#paper)" rx="2"/>
+  <rect x="16" y="16" width="368" height="498" fill="none" stroke="#1c1a18" stroke-width="1" opacity="0.15" rx="1"/>
+  <text x="200" y="340" font-family="'Noto Serif TC', 'Songti SC', serif" font-size="240" font-weight="300"
+        fill="#1c1a18" text-anchor="middle" opacity="0.85" transform="rotate(-3,200,280)">山</text>
+  <text x="200" y="490" font-family="'Noto Serif TC', serif" font-size="13" fill="#7a6e64" text-anchor="middle" letter-spacing="4">草書　2023</text>
+  <circle cx="370" cy="46" r="10" fill="#c0392b" opacity="0.65"/>
+  <circle cx="370" cy="46" r="6" fill="none" stroke="#f5f0e8" stroke-width="1" opacity="0.5"/>
+</svg>
