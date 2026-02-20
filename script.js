@@ -123,23 +123,86 @@ form.addEventListener('submit', e => {
 });
 
 // --- Scroll reveal animation ---
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // Apply stagger delay for gallery items
+      const delay = entry.target.dataset.revealDelay;
+      if (delay) {
+        entry.target.style.transitionDelay = delay;
+      }
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.gallery-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease';
-  observer.observe(el);
+// Gallery items — staggered reveal
+document.querySelectorAll('.gallery-item').forEach((el, i) => {
+  el.dataset.revealDelay = (i % 3) * 0.12 + 's';
+  revealObserver.observe(el);
 });
 
-// Add visible class handling
-const style = document.createElement('style');
-style.textContent = `.gallery-item.visible { opacity: 1 !important; transform: translateY(0) !important; }`;
-document.head.appendChild(style);
+// Section headers
+document.querySelectorAll('.section-header').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Brush-lines (reveal after their parent header)
+document.querySelectorAll('.brush-line').forEach(el => {
+  el.dataset.revealDelay = '0.35s';
+  revealObserver.observe(el);
+});
+
+// About seal stamp
+const aboutSeal = document.querySelector('.about-seal');
+if (aboutSeal) {
+  aboutSeal.dataset.revealDelay = '0.25s';
+  revealObserver.observe(aboutSeal);
+}
+
+// About text paragraphs — staggered
+document.querySelectorAll('.about-text p, .about-text blockquote').forEach((el, i) => {
+  el.classList.add('reveal-line');
+  el.dataset.revealDelay = (0.15 + i * 0.12) + 's';
+  revealObserver.observe(el);
+});
+
+// Contact form
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  revealObserver.observe(contactForm);
+}
+
+// --- Floating ink particles ---
+(function createInkParticles() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const count = 12;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'ink-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.bottom = '-10px';
+    p.style.animationDuration = (6 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    hero.appendChild(p);
+  }
+})();
+
+// --- Hero parallax on scroll ---
+const inkSplash = document.querySelector('.ink-splash');
+const heroContent = document.querySelector('.hero-content');
+if (inkSplash && heroContent) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      inkSplash.style.transform =
+        `translate(-50%, calc(-50% + ${y * 0.15}px))`;
+      heroContent.style.transform =
+        `translateY(${y * 0.08}px)`;
+      heroContent.style.opacity = 1 - y / (window.innerHeight * 0.9);
+    }
+  }, { passive: true });
+}
