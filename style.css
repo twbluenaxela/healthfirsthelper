@@ -162,12 +162,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero-sub {
-  font-family: var(--font-en);
-  font-style: italic;
+  font-family: var(--font-zh);
+  font-style: normal;
   color: rgba(222,200,162,0.50);
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  text-transform: lowercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
   margin-bottom: 2.5rem;
   animation: fadeSlideIn 0.8s 0.7s both;
 }
@@ -215,11 +214,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 3.5rem;
 }
 .section-label {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   letter-spacing: 0.35em;
-  text-transform: uppercase;
   color: var(--gold);
-  font-family: var(--font-en);
+  font-family: var(--font-zh);
 }
 .section-header h2 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
@@ -259,12 +257,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
   box-shadow: var(--shadow);
-}
-.gallery-item:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
 }
 .gallery-img-wrap {
   position: relative;
@@ -412,11 +405,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--text-muted);
   opacity: 0.6;
 }
-.form-row input:focus,
-.form-row textarea:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200,144,58,0.10);
-}
 .submit-btn {
   display: block;
   width: 100%;
@@ -546,6 +534,164 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lb-prev:hover, .lb-next:hover { color: var(--text); }
 .lb-prev { left: 1rem; }
 .lb-next { right: 1rem; }
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children inside about-text */
+.about-text .reveal-line {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.about-text .reveal-line.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Brush-line drawing animation */
+.brush-line {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.brush-line.visible {
+  transform: scaleX(1);
+}
+
+/* Seal stamp animation */
+.about-seal {
+  opacity: 0;
+  transform: scale(1.6) rotate(-8deg);
+  transition: opacity 0.4s ease,
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.about-seal.visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.footer-seal {
+  animation: sealPulse 4s ease-in-out infinite;
+}
+@keyframes sealPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.04); }
+}
+
+/* Gallery staggered entrance */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.3s ease;
+}
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gallery-item.visible:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Ink wash fade for section headers */
+.section-header {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact form reveal */
+.contact-form {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.15s,
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.15s;
+}
+.contact-form.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Refined lightbox entrance */
+.lightbox .lb-content {
+  transform: scale(0.92) translateY(16px);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.35s ease;
+}
+.lightbox.active .lb-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Hero ink-splash subtle breathing */
+.ink-splash {
+  animation: inkBreathe 8s ease-in-out infinite;
+}
+@keyframes inkBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+  50%      { transform: translate(-50%, -50%) scale(1.08); opacity: 0.85; }
+}
+
+/* Floating ink particles */
+.ink-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(200,144,58,0.12);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: inkFloat linear infinite;
+}
+@keyframes inkFloat {
+  0%   { transform: translateY(0) scale(1);   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+}
+
+/* Nav brand subtle entrance */
+.nav-brand {
+  animation: fadeSlideIn 0.6s 0.1s both;
+}
+
+/* Enhanced form input focus */
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200,144,58,0.10),
+              0 0 20px rgba(200,144,58,0.05);
+}
+
+/* Blockquote reveal */
+.about-text blockquote {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.about-text blockquote.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
